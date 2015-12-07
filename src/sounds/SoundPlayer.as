@@ -20,9 +20,9 @@ package sounds
 		{
 			_main = main;			
 			
-			loadSound("../lib/pong.mp3");			
-			loadSound("../lib/pong2.mp3");			
-			loadSound("../lib/pong3.mp3");	
+			loadSound("../lib/Jump.mp3");			
+			loadSound("../lib/Shunpo.mp3");			
+			loadSound("../lib/Sonido.mp3");	
 			loadSound("../lib/lose.mp3");	
 			loadSound("../lib/intro.mp3");	
 						

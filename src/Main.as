@@ -17,6 +17,7 @@ package
 		private var introScreen:IntroScreen;
 		private var gameOverScreen:GameOverScreen;
 		private var soundPlayer:SoundPlayer;
+		private var background2:Background2;
 		
 		public function Main() 
 		{
@@ -34,11 +35,15 @@ package
 		{			
 			introScreen = new IntroScreen();
 			addChild(introScreen);
+			
+			background2 = new Background2();
+			addChildAt(background2, 0);
 			introScreen.addEventListener(IntroScreen.START_GAME, startGame);
 		}
 		private function startGame(e:Event):void 
 		{
 			removeChild(introScreen);
+			removeChild(background2);
 			gameScreen = new GameScreen();
 			addChild(gameScreen);
 			gameScreen.addEventListener(GameScreen.GAME_OVER, onGameOver);

@@ -21,16 +21,23 @@ package screens
 		private var balls:Array = [];
 		private var paddles:Array = [];
 		private var scoreboard:Scoreboard;
+		private var _maxSpeed:Number = 0;
 		static public const GAME_OVER:String = "game over";
 		static public const BALL_BOUNCE:String = "ballBounce";
+				
+			
+		
 		public function GameScreen() 
 		{
 			this.addEventListener(Event.ADDED_TO_STAGE, init);			
 		}				
 		private function init(e:Event):void 
-		{
+		{	
+			
+			addChild(new Background());
+			
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-				for (var i:int = 0; i < 2; i++) 
+			for (var i:int = 0; i < 3; i++) 
 			{
 				balls.push(new Ball());
 				addChild(balls[i]);
@@ -42,6 +49,9 @@ package screens
 			}	
 			paddles.push(new AI());
 			paddles.push(new Player());
+			trace("fghjklkjhgf");
+			paddles[1].maxSpeed = 12;
+			trace(paddles[1].maxSpeed);
 			paddles[0].balls = balls;
 			for (i = 0; i < 2; i++) 
 			{
@@ -57,8 +67,7 @@ package screens
 			addChild(scoreboard);
 			
 			this.addEventListener(Event.ENTER_FRAME, loop);
-		}		
-		
+		}
 		private function loop(e:Event):void 
 		{
 			checkCollision();
@@ -101,7 +110,7 @@ package screens
 		
 		private function checkScore():void 
 		{
-			if (scoreboard.player1 >= 10 || scoreboard.player2 >= 10)
+			if (scoreboard.player1 >= 25 || scoreboard.player2 >= 25)
 			{
 				destroy();
 				dispatchEvent(new Event(GAME_OVER));

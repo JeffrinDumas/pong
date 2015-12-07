@@ -24,6 +24,9 @@ package screens
 		
 		public function Screen() 
 		{
+			
+			
+			
 			textFormat = new TextFormat();
 			textFormat.font = "jedi";
 			textFormat.size = 60;
@@ -39,6 +42,7 @@ package screens
 			scoreFormat.font = "jedi";
 			scoreFormat.size = 40;
 			scoreFormat.color = 0xffffff;
+			
 			
 		}
 		

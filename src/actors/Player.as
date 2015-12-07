@@ -10,6 +10,21 @@ package actors
 	{
 		private var controller:Controller;
 		private var speed:Number = 0;
+		private var _maxSpeed:Number = 40;
+		
+		public function get maxSpeed():Number
+		{
+			return _maxSpeed;
+		}
+		
+		public function set maxSpeed(s:Number):void
+		{
+			if (s < 30)
+			{
+				_maxSpeed = s;
+			}
+		}
+		
 		
 		public function Player() 
 		{
@@ -25,11 +40,11 @@ package actors
 		{
 			if (controller.up)
 			{
-				speed = -15;
+				speed = -_maxSpeed;
 			}
 			else if(controller.down)
 			{
-				speed = 15;
+				speed = _maxSpeed;
 			}else
 			{
 				if (speed > 0) speed--;
